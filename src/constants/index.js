@@ -1,0 +1,1 @@
+export const KEY_IS_DARK_MODE = "IS_DARK_MODE";

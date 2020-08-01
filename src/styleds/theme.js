@@ -1,5 +1,5 @@
 export const darkTheme = {
-    body: "#000",
+    body: "#141414",
     colors: {
         primary: "#FFF"
     }
@@ -8,7 +8,7 @@ export const darkTheme = {
 export const lightTheme = {
     body: "#FFF",
     colors: {
-        primary: "#000"
+        primary: "#141414"
     }
 }
 

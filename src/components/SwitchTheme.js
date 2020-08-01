@@ -7,10 +7,12 @@ export const Theme = styled.div`
     cursor: pointer;
 `;
 
-export default function SwitchTheme({ onChangeTheme }) {
+function SwitchTheme({ onChangeTheme }) {
     return (
         <Theme>
             <Icon.Moon fill="true" onClick={onChangeTheme} />
         </Theme>
     )
 }
+
+export default React.memo(SwitchTheme);

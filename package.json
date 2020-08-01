@@ -7,13 +7,13 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "axios": "^0.19.2",
-    "feather-icons": "^4.28.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-feather": "^2.0.8",
+    "react-loading-skeleton": "^2.1.1",
     "react-scripts": "3.4.1",
     "styled-components": "^5.1.1",
-    "styled-theming": "^2.2.0"
+    "text-ellipsis": "^1.0.3"
   },
   "scripts": {
     "start": "react-scripts start",

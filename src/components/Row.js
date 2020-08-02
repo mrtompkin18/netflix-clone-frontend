@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import styled from "styled-components";
 import { HTTP_METHOD, MOVIES_IMAGE_PATH } from "../constants/request";
-import { Header2 } from "../styleds";
+import { Skeleton, Header2 } from "../styleds";
 import useFetch from "../hooks/useFetch";
 
 const Wrapper = styled.div`
@@ -29,8 +29,47 @@ const PosterImage = styled.img`
 function Row({ title, url, largPoster }) {
     const { isLoading, responseData } = useFetch(url, HTTP_METHOD.GET);
 
+    const SkeletonCard = (isLargPoster) => {
+        if (isLargPoster) {
+            return (
+                <Fragment>
+                    <Skeleton width="160px" height="250px" mr="15px" />
+                    <Skeleton width="160px" height="250px" mr="15px" />
+                    <Skeleton width="160px" height="250px" mr="15px" />
+                    <Skeleton width="160px" height="250px" mr="15px" />
+                    <Skeleton width="160px" height="250px" mr="15px" />
+                    <Skeleton width="160px" height="250px" mr="15px" />
+                    <Skeleton width="160px" height="250px" mr="15px" />
+                    <Skeleton width="160px" height="250px" mr="15px" />
+                </Fragment>
+            )
+        } else {
+            return (
+                <Fragment>
+                    <Skeleton width="220px" height="120px" mr="15px" />
+                    <Skeleton width="220px" height="120px" mr="15px" />
+                    <Skeleton width="220px" height="120px" mr="15px" />
+                    <Skeleton width="220px" height="120px" mr="15px" />
+                    <Skeleton width="220px" height="120px" mr="15px" />
+                    <Skeleton width="220px" height="120px" mr="15px" />
+                    <Skeleton width="220px" height="120px" mr="15px" />
+                    <Skeleton width="220px" height="120px" mr="15px" />
+                </Fragment>
+            )
+        }
+    }
+
     if (isLoading) {
-        return <Header2>Loading..</Header2>
+        return (
+            <div style={{ paddingLeft: "60px" }}>
+                <Wrapper>
+                    <Header2>{title}</Header2>
+                    <div style={{ display: "flex" }}>
+                        {SkeletonCard(largPoster)}
+                    </div>
+                </Wrapper>
+            </div>
+        );
     }
 
     const renderMovies = () => {
@@ -40,7 +79,7 @@ function Row({ title, url, largPoster }) {
                 largPoster={largPoster}
                 key={item.id}
                 src={MOVIES_IMAGE_PATH.concat(item.poster_path)}
-                alt={item.title}
+                alt={item?.title || item.id}
             />
         })
     }

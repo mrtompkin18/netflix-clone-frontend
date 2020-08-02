@@ -15,4 +15,4 @@ function SwitchTheme({ onChangeTheme }) {
     )
 }
 
-export default React.memo(SwitchTheme);
+export default SwitchTheme;

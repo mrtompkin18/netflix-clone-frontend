@@ -31,21 +31,23 @@ function NavBar({ toggleTheme }) {
         window.addEventListener("scroll", () => {
             if (window.scrollY > 100) {
                 setIsActive(true);
-            } else setIsActive(false);
+            } else {
+                setIsActive(false);
+            }
         });
-        return () => window.removeEventListener("scroll")
+        return () => window.removeEventListener("scroll");
     }, []);
 
     return (
         <NavWrapper active={isActive}>
             <div style={{ padding: "15px 60px" }}>
                 <NavContent>
-                    <img src={logo} width="120px" />
+                    <img src={logo} width="120px" alt="Netflix" />
                     <NavAccount>
                         <div style={{ padding: "6px 16px" }}>
                             <SwtichTheme onChangeTheme={toggleTheme} />
                         </div>
-                        <img src={profile} width="40px" />
+                        <img src={profile} width="40px" alt="Profile Image" />
                     </NavAccount>
                 </NavContent>
             </div>

@@ -3,7 +3,7 @@ import { booleanPaser, getDefaultDarkTheme } from "../utils";
 import { KEY_IS_DARK_MODE } from "../constants";
 
 function useDarkMode() {
-    const [isDarkMode, setIsDarkMode] = useState(getDefaultDarkTheme());
+    const [isDarkMode, setIsDarkMode] = useState(true);
 
     const toggleTheme = () => {
         setIsDarkMode(!isDarkMode);

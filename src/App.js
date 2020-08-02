@@ -1,22 +1,24 @@
-import React, { Fragment } from 'react';
+import React from 'react';
+import styled from "styled-components";
 
 import { ThemeProvider } from 'styled-components';
 import { MOVIES_URI } from "./constants/request";
 import { lightTheme, darkTheme } from "./styleds/theme";
-import { GlobalStyled } from "./styleds/index";
+import { Body } from "./styleds";
 
 import Row from "./components/Row";
 import Banner from "./components/Banner";
 import NavBar from "./components/NavBar";
-import useDarkMode from './hooks/useDarkMode'
+import useDarkMode from './hooks/useDarkMode';
+
+import "./App.css";
 
 function App() {
   const { isDarkMode, toggleTheme } = useDarkMode();
 
   return (
-    <Fragment>
-      <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
-        <GlobalStyled />
+    <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
+      <Body>
         <NavBar toggleTheme={toggleTheme} />
         <Banner />
         <Row title="Trending Now" url={MOVIES_URI.FETCH_TRENDING} largPoster={true} />
@@ -25,8 +27,8 @@ function App() {
         <Row title="Horror" url={MOVIES_URI.FETCH_HOROR_MOVIES} />
         <Row title="Action Movies" url={MOVIES_URI.FETCH_ACTION_MOVIES} />
         <Row title="Comedy Movies" url={MOVIES_URI.FETCH_COMEDY_MOVIES} />
-      </ThemeProvider>
-    </Fragment>
+      </Body>
+    </ThemeProvider>
   )
 }
 

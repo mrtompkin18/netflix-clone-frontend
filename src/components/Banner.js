@@ -4,7 +4,8 @@ import useFetch from "../hooks/useFetch";
 import * as Icon from 'react-feather';
 
 import { MOVIES_URI, HTTP_METHOD, MOVIES_IMAGE_PATH } from "../constants/request";
-import { Header2 } from "../styleds";
+
+import { Skeleton } from "../styleds";
 
 const BannerBackdrop = styled.div`
     object-fit: contain;
@@ -75,9 +76,7 @@ const Overview = styled.div`
 function Banner() {
     const { isLoading, responseData } = useFetch(MOVIES_URI.FETCH_UPCOMING, HTTP_METHOD.GET);
 
-    if (isLoading) {
-        return <Header2>Loading..</Header2>
-    }
+    if (isLoading) return <Skeleton width="100%" height="600px" />;
 
     const movie = responseData.results[
         Math.floor(Math.random() * responseData.results.length)
@@ -88,10 +87,8 @@ function Banner() {
             <BannerContent>
                 <h1>{movie.title}</h1>
                 <Overview>{movie.overview}</Overview>
-                <div>
-                    <Button playBtn={true}><Icon.Play size={18} /> Play</Button>
-                    <Button><Icon.Info size={18} /> More Info</Button>
-                </div>
+                <Button playBtn={true}><Icon.Play size={18} /> Play</Button>
+                <Button><Icon.Info size={18} /> More Info</Button>
             </BannerContent>
         </BannerBackdrop>
     )

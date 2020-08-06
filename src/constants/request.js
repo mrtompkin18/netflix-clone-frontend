@@ -11,6 +11,7 @@ export const MOVIES_URI = {
     FETCH_HOROR_MOVIES: `/discover/movie?api_key=${API_KEY}&with_genres=27`,
     FETCH_COMEDY_MOVIES: `/discover/movie?api_key=${API_KEY}&with_genres=35`,
     FETCH_ROMANCE_MOVIES: `/discover/movie?api_key=${API_KEY}&with_genres=99`,
+    FETCH_GENRES: `/genre/movie/list?api_key=${API_KEY}&language=en-US`
 }
 
 export const HTTP_METHOD = {

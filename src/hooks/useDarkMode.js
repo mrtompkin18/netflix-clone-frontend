@@ -15,9 +15,7 @@ function useDarkMode() {
         if (isDarkModeTemp) {
             setIsDarkMode(booleanPaser(isDarkModeTemp));
         }
-    }, [])
-
-    console.log(isDarkMode)
+    }, []);
 
     return { isDarkMode, toggleTheme };
 }

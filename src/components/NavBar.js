@@ -12,16 +12,15 @@ const NavWrapper = styled.div`
     z-index: 9999;
     background-color: ${props => props.active && props.theme.body};
     transition: background-color 0.2s linear;
-`;
-
-const NavContent = styled.div`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-`;
-
-const NavAccount = styled.div`
-    display: flex;
+    .nav__content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 60px;
+        .nav__account {
+            display: flex;
+        }
+    }
 `;
 
 function NavBar({ toggleTheme }) {
@@ -40,16 +39,14 @@ function NavBar({ toggleTheme }) {
 
     return (
         <NavWrapper active={isActive}>
-            <div style={{ padding: "15px 60px" }}>
-                <NavContent>
-                    <img src={logo} width="120px" alt="Netflix" />
-                    <NavAccount>
-                        <div style={{ padding: "6px 16px" }}>
-                            <SwtichTheme onChangeTheme={toggleTheme} />
-                        </div>
-                        <img src={profile} width="40px" alt="Profile Image" />
-                    </NavAccount>
-                </NavContent>
+            <div className="nav__content">
+                <img src={logo} width="120px" alt="Netflix" />
+                <div className="nav__account">
+                    <div style={{ padding: "6px 16px" }}>
+                        <SwtichTheme onChangeTheme={toggleTheme} />
+                    </div>
+                    <img src={profile} width="40px" alt="Profile Image" />
+                </div>
             </div>
         </NavWrapper>
     )

@@ -4,8 +4,7 @@ import useFetch from "../hooks/useFetch";
 import * as Icon from 'react-feather';
 
 import { MOVIES_URI, HTTP_METHOD, MOVIES_IMAGE_PATH } from "../constants/request";
-
-import { Skeleton } from "../styleds";
+import { Button, Overview, Skeleton } from "../styleds";
 
 const BannerBackdrop = styled.div`
     object-fit: contain;
@@ -44,33 +43,6 @@ const BannerContent = styled.div`
             font-size: 40px;
         }
     }
-`;
-
-const Button = styled.button`
-    cursor: pointer;
-    height: 40px;
-    padding: 0px 25px;
-    margin-top: 20px;
-    margin-right: 10px;
-    font-weight: bold;
-    font-size: 16px;
-    border: 0px;
-    border-radius: 4px;
-    vertical-align: middle;
-    background: ${props => props.playBtn ? `#fff` : `rgba(109, 109, 110, 0.7)`};
-    color: ${props => props.playBtn ? `#000` : `#fff`};
-    transition: all 0.4s;
-    &:hover {
-        opacity :0.7;
-    }
-`;
-
-const Overview = styled.div`
-    overflow: hidden;
-    text-overflow: ellipsis;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    display: -webkit-box;
 `;
 
 function Banner() {

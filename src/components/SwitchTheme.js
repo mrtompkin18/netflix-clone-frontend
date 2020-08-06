@@ -10,7 +10,7 @@ export const Theme = styled.div`
 function SwitchTheme({ onChangeTheme }) {
     return (
         <Theme>
-            <Icon.Moon fill="true" onClick={onChangeTheme} />
+            <Icon.Moon onClick={onChangeTheme} />
         </Theme>
     )
 }

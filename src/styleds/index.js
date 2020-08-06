@@ -1,12 +1,47 @@
-import styled, { createGlobalStyle, keyframes } from "styled-components";
+import styled, { keyframes } from "styled-components";
 
-export const Header2 = styled.h2`
+export const Header = styled.h2`
     color: ${props => props.theme.colors.primary};
+    margin-bottom: ${(props) => props.mb || ""};
+    margin-top: ${(props) => props.mt || ""};
+    margin-left: ${(props) => props.ml || ""};
+    margin-right: ${(props) => props.mr || ""};
+`;
+
+export const Overview = styled.div`
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  opacity: ${props => props.opacity || 1};
+  font-size: ${props => props.size || "16px"};
+`;
+
+export const Button = styled.button`
+    cursor: pointer;
+    height: 40px;
+    padding: 0px 25px;
+    margin-top: 20px;
+    margin-right: 10px;
+    font-weight: bold;
+    font-size: 16px;
+    border: 0px;
+    border-radius: 4px;
+    vertical-align: middle;
+    background: ${props => props.playBtn ? `#fff` : `rgba(109, 109, 110, 0.7)`};
+    color: ${props => props.playBtn ? `#000` : `#fff`};
+    transition: all 0.4s;
+    &:hover {
+        opacity :0.7;
+    }
 `;
 
 export const Body = styled.div`
   background-color: ${props => props.theme.body};
   transition: background-color 0.5s ease-in-out;
+  font-family: "Inter";
+  font-size: 16px;
 `;
 
 const pulse = keyframes`

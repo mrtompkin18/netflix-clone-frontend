@@ -21,7 +21,7 @@ function App() {
       <Body>
         <NavBar toggleTheme={toggleTheme} />
         <Banner />
-        <Row title="Trending Now" url={MOVIES_URI.FETCH_TRENDING} largPoster={true} />
+        <Row title="Trending Now" url={MOVIES_URI.FETCH_TRENDING} />
         <Row title="Upcoming" url={MOVIES_URI.FETCH_UPCOMING} />
         <Row title="Discover" url={MOVIES_URI.FETCH_DISCOVER} />
         <Row title="Horror" url={MOVIES_URI.FETCH_HOROR_MOVIES} />

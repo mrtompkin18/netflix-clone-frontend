@@ -42,7 +42,7 @@ export const Button = styled.button`
 export const Body = styled.div`
   background-color: ${props => props.theme.body};
   transition: background-color 0.5s ease-in-out;
-  font-family: "Inter";
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 16px;
 `;
 

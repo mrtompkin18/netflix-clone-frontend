@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useRef } from 'react';
+import React, { useState } from 'react';
 import styled from "styled-components";
 
 import { HTTP_METHOD, MOVIES_IMAGE_PATH } from "../constants/request";
@@ -43,7 +43,11 @@ function Row({ title, url }) {
         );
     }
 
-    const renderMovies = (results) => {
+    const closeMovieDetail = () => {
+        setMovieDetail(null)
+    }
+
+    const renderMovieRow = (results) => {
         return <div className="poster__image__wrapper"> {
             results.map(movie => {
                 return (
@@ -65,8 +69,8 @@ function Row({ title, url }) {
     return (
         <Wrapper>
             <Header ml="60px">{title}</Header>
-            {renderMovies(results)}
-            {movieDetail && <MovieDetail movie={movieDetail} />}
+            {renderMovieRow(results)}
+            {movieDetail && <MovieDetail movie={movieDetail} onClose={closeMovieDetail} />}
         </Wrapper >
     )
 }

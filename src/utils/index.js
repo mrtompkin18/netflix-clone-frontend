@@ -1,6 +1,3 @@
-import { MOVIES_URI } from "../constants/request";
-import api from "../services/api";
-
 export const booleanPaser = (strBoolean) => {
     return strBoolean && strBoolean === "true";
 }

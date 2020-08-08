@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { booleanPaser, getDefaultDarkTheme } from "../utils";
+import { useState, useEffect } from 'react';
+import { booleanPaser } from "../utils";
 import { KEY_IS_DARK_MODE } from "../constants";
 
 function useDarkMode() {

@@ -11,7 +11,7 @@ function useFetch(url, options = {}) {
             setResponseData(response.data);
             setIsLoading(false);
         })();
-    },[]);
+    }, [url, options]);
 
     return { isLoading, responseData }
 }

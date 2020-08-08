@@ -45,7 +45,7 @@ function NavBar({ toggleTheme }) {
                     <div style={{ padding: "6px 16px" }}>
                         <SwtichTheme onChangeTheme={toggleTheme} />
                     </div>
-                    <img src={profile} width="40px" alt="Profile Image" />
+                    <img src={profile} width="40px" alt="Profile" />
                 </div>
             </div>
         </NavWrapper>

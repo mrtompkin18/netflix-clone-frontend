@@ -16,6 +16,8 @@ export const Overview = styled.div`
   display: -webkit-box;
   opacity: ${props => props.opacity || 1};
   font-size: ${props => props.size || "16px"};
+  font-weight : ${props => props.weight || "normal"};
+  margin : ${props => props.margin || "auto"}
 `;
 
 export const Button = styled.button`

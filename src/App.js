@@ -1,6 +1,4 @@
 import React from 'react';
-import styled from "styled-components";
-
 import { ThemeProvider } from 'styled-components';
 import { MOVIES_URI } from "./constants/request";
 import { lightTheme, darkTheme } from "./styleds/theme";

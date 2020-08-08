@@ -40,12 +40,12 @@ function NavBar({ toggleTheme }) {
     return (
         <NavWrapper active={isActive}>
             <div className="nav__content">
-                <img src={logo} width="120px" alt="Netflix" />
+                <img src={logo} width="120px" height="32.5px" alt="Netflix" />
                 <div className="nav__account">
                     <div style={{ padding: "6px 16px" }}>
                         <SwtichTheme onChangeTheme={toggleTheme} />
                     </div>
-                    <img src={profile} width="40px" alt="Profile" />
+                    <img src={profile} width="40px" height="40px" alt="Profile" />
                 </div>
             </div>
         </NavWrapper>

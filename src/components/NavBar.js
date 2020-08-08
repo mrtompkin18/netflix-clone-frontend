@@ -17,6 +17,9 @@ const NavWrapper = styled.div`
         justify-content: space-between;
         align-items: center;
         padding: 15px 60px;
+        @media (max-width: 700px){
+            padding: 15px 10px;
+        }
         .nav__account {
             display: flex;
         }

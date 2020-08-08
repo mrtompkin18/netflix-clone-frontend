@@ -14,6 +14,9 @@ const Wrapper = styled.div`
         padding-left: 60px;
         overflow-x: scroll;
         overflow-y: hidden;
+        @media (max-width: 700px){
+            padding-left: 10px;
+        }
     }
     .poster__item {
         width: 160px;

@@ -5,9 +5,9 @@ import * as Icon from "react-feather";
 import api from "../services/api";
 
 import {
-    MOVIES_URI,
-    HTTP_METHOD,
-    MOVIES_IMAGE_PATH,
+  MOVIES_URI,
+  HTTP_METHOD,
+  MOVIES_IMAGE_PATH,
 } from "../constants/request";
 import { Button, Overview, Skeleton } from "../styleds";
 
@@ -52,43 +52,53 @@ const BannerContent = styled.div`
 `;
 
 function Banner() {
-    const [response, setResponse] = useState(null);
-    const [isLoading, setLoading] = useState(true);
-    const intervalTime = 3000;
-    
-    useEffect(() => {
-        const interval = setInterval(() => {
-            const url = MOVIES_URI.FETCH_UPCOMING;
-            const options = HTTP_METHOD.GET;
-            api({ url, ...options }).then(response => {
-                setResponse(response.data.results);
-                setLoading(false);
-            });
-        }, intervalTime);
+  const [movie, setMovie] = useState(null);
+  const [isLoading, setLoading] = useState(true);
 
-        return () => clearInterval(interval);
+  useEffect(() => {
+    const url = MOVIES_URI.FETCH_UPCOMING;
+    const options = HTTP_METHOD.GET;
+
+    api({ url, ...options }).then(response => {
+      const { results } = response.data;
+    
+      defaultMovie(results);
+      randomMovie(results, 5000);
+      setLoading(false);
     });
 
-    if (isLoading) return <Skeleton width="100%" height="600px" />;
+  }, []);
 
-    const movie = response[
-        Math.floor(Math.random() * response.length)
-    ];
+  const randomNumber = (size)=>{
+    return Math.floor(Math.random() * size)
+  }
 
-    return (
-        <BannerBackdrop imageURL={movie.backdrop_path}>
-            <BannerContent>
-                <h1>{movie.title}</h1>
-                <Overview>{movie.overview}</Overview>
-                <Button playBtn={true}>
-                    <Icon.Play size={18} /> Play
+  const randomMovie = (results, time) => {
+    setInterval(() => {
+      defaultMovie(results);
+    }, time);
+  }
+
+  const defaultMovie =(results) =>{
+    setMovie(results[randomNumber(results.length)]);
+  }
+
+  if (isLoading) return <Skeleton width="100%" height="600px" />;
+
+  return (
+    <BannerBackdrop imageURL={movie.backdrop_path}>
+      <BannerContent>
+        <h1>{movie.title}</h1>
+        <Overview>{movie.overview}</Overview>
+        <Button playBtn={true}>
+          <Icon.Play size={18} /> Play
                 </Button>
-                <Button>
-                    <Icon.Info size={18} /> More Info
+        <Button>
+          <Icon.Info size={18} /> More Info
         </Button>
-            </BannerContent>
-        </BannerBackdrop>
-    );
+      </BannerContent>
+    </BannerBackdrop>
+  );
 }
 
 export default React.memo(Banner);
